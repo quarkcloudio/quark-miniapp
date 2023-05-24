@@ -1,0 +1,7 @@
+{
+  "name": "quarkapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "custom"
+}
