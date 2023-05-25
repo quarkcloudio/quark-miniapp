@@ -7,10 +7,17 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Engine: typeof import('./src/components/engine/engine.vue')['default']
+    NutCol: typeof import('@nutui/nutui-taro')['Col']
+    NutGrid: typeof import('@nutui/nutui-taro')['Grid']
+    NutGridItem: typeof import('@nutui/nutui-taro')['GridItem']
+    NutNavbar: typeof import('@nutui/nutui-taro')['Navbar']
+    NutRow: typeof import('@nutui/nutui-taro')['Row']
+    NutSearchbar: typeof import('@nutui/nutui-taro')['Searchbar']
     NutSwiper: typeof import('@nutui/nutui-taro')['Swiper']
     NutSwiperItem: typeof import('@nutui/nutui-taro')['SwiperItem']
     NutTabbar: typeof import('@nutui/nutui-taro')['Tabbar']
     NutTabbarItem: typeof import('@nutui/nutui-taro')['TabbarItem']
-    NutToast: typeof import('@nutui/nutui-taro')['Toast']
+    Render: typeof import('./src/components/render/render.vue')['default']
   }
 }

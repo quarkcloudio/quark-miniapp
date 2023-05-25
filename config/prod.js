@@ -33,5 +33,6 @@ module.exports = {
     //       postProcess: (context) => ({ ...context, outputPath: path.join(staticDir, 'index.html') })
     //     }))
     // }
-  }
+  },
+  apiHost: 'http://127.0.0.1:3000'
 }

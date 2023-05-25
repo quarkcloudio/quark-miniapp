@@ -1,5 +1,11 @@
 <template>
-	<engine :api="api" />
+  <nut-grid :column-num="5">
+    <nut-grid-item text="餐饮美食"><Dongdong /></nut-grid-item>
+    <nut-grid-item text="休闲娱乐"><Dongdong /></nut-grid-item>
+    <nut-grid-item text="生活服务"><Dongdong /></nut-grid-item>
+    <nut-grid-item text="鲜花蛋糕"><Dongdong /></nut-grid-item>
+    <nut-grid-item text="旅游酒店"><Dongdong /></nut-grid-item>
+  </nut-grid>
 </template>
 
 <script>
