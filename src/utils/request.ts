@@ -1,4 +1,4 @@
-import config from "@/config/index.js"
+import Taro from '@tarojs/taro'
 
 /**
  * 发起网络请求
@@ -6,11 +6,11 @@ import config from "@/config/index.js"
  * @param {String} url 请求连接
  * @param {Object} options 请求属性
  */
-export const request = async (url, options) => {
-	if(url.indexOf("http") == -1) {
-		url = config.apiHost + url;
+const request = async (url, options) => {
+	if(Taro.getEnv() !== "WEB") {
+		url = process.env.API_HOST + url;
 	}
-	
+
 	var token = Taro.getStorageSync('token') 
 	if (!token) {
 		token = ''
@@ -27,3 +27,5 @@ export const request = async (url, options) => {
 	
 	return res.data;
 }
+
+export default request

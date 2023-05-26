@@ -13,6 +13,8 @@ const NutUIResolver = () => {
   }
 }
 
+const path = require('path')
+
 const config = {
   projectName: 'quarkapp',
   date: '2023-5-23',
@@ -49,6 +51,11 @@ const config = {
   },
   sass:{
     data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
+  },
+  alias: {
+    '@/components': path.resolve(__dirname, '..', 'src/components'),
+    '@/services': path.resolve(__dirname, '..', 'src/services'),
+    '@/utils': path.resolve(__dirname, '..', 'src/utils'),
   },
   mini: {
     webpackChain(chain) {

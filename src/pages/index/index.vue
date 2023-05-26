@@ -4,29 +4,22 @@
 
 <script>
 import { reactive, toRefs } from 'vue';
-import { Home, Category, My, Search2, Dongdong } from '@nutui/icons-vue-taro';
+import Engine from '@/components/engine/engine';
 import Taro from '@tarojs/taro'
 export default {
   name: 'Index',
   components: {
-    Home,
-    Category,
-    My,
-    Search2,
-    Dongdong
+    Engine,
+  },
+  data() {
+    return {
+      title: '首页',
+      api:'/api/mix/page/index/index'
+    }
   },
   setup() {
-    const state = reactive({
-      type: 'text',
-      show: false,
-    });
-
     return {
-      ...toRefs(state),
-      Home,
-      Category,
-      My,
-      Dongdong
+      Engine,
     }
   }
 }

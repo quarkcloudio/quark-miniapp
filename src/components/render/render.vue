@@ -53,7 +53,6 @@
     },
     data() {
         return {};
-    },
-    components: { render }
+    }
 };
 </script>

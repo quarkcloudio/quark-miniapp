@@ -1,6 +1,7 @@
 module.exports = {
   env: {
-    NODE_ENV: '"production"'
+    NODE_ENV: '"production"',
+    API_HOST: '"http://127.0.0.1:3000"'
   },
   defineConstants: {
   },
@@ -33,6 +34,5 @@ module.exports = {
     //       postProcess: (context) => ({ ...context, outputPath: path.join(staticDir, 'index.html') })
     //     }))
     // }
-  },
-  apiHost: 'http://127.0.0.1:3000'
+  }
 }

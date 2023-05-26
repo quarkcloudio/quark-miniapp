@@ -3,11 +3,15 @@
 </template>
 
 <script>
-	import { get } from "@/services/action.js"
-	import Render from '@/components/render/render.vue';
+	import Taro from '@tarojs/taro'
+	import Render from '@/components/render/render';
+	import { get } from "@/services/action"
 	
 	export default {
 		name: 'Engine',
+		components: {
+			Render,
+		},
 		props: {
 			title: {
 				type: String,
@@ -34,7 +38,7 @@
 		},
 		activated() {
 			if (!this.api) {
-				uni.showToast({
+				Taro.showToast({
 					title:"接口不能为空"
 				})
 			} else {
@@ -46,9 +50,7 @@
 				let result = await get({
 					url:api,
 				})
-				
 				this.body = result;
-				
 				Taro.setNavigationBarTitle({
 					title: result.title
 				});
@@ -57,10 +59,5 @@
 	}
 </script>
 
-<style>
-	.container {
-		padding: 20px;
-		font-size: 14px;
-		line-height: 24px;
-	}
+<style lang="scss">
 </style>
