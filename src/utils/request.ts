@@ -7,11 +7,11 @@ import Taro from '@tarojs/taro'
  * @param {Object} options 请求属性
  */
 const request = async (url, options) => {
-	if(Taro.getEnv() !== "WEB") {
+	if (Taro.getEnv() !== "WEB") {
 		url = process.env.API_HOST + url;
 	}
 
-	var token = Taro.getStorageSync('token') 
+	var token = Taro.getStorageSync('token')
 	if (!token) {
 		token = ''
 	}
@@ -24,7 +24,7 @@ const request = async (url, options) => {
 			Authorization: `Bearer ${token}`
 		}
 	});
-	
+
 	return res.data;
 }
 

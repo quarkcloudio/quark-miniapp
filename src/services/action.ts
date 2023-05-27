@@ -9,11 +9,11 @@ const get = async (params: any) => {
 	let url = params.url;
 	let data = params.data;
 
-	var res = await request(url,{
-		method:'GET',
-		data:data
+	var res = await request(url, {
+		method: 'GET',
+		data: data
 	});
-	
+
 	return res;
 }
 
@@ -26,11 +26,11 @@ const post = async (params: any) => {
 	let url = params.url;
 	let data = params.data;
 
-	var res = await request(url,{
-		method:'POST',
-		data:data
+	var res = await request(url, {
+		method: 'POST',
+		data: data
 	});
-	
+
 	return res;
 }
 
