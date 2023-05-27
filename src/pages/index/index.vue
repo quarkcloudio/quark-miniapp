@@ -13,7 +13,6 @@ export default {
   },
   data() {
     return {
-      title: '首页',
       api:'/api/miniapp/page/index/index'
     }
   },

@@ -9,9 +9,6 @@
 </template>
 
 <script>
-	/**
-	 * Page
-	 */
 	import Engine from '@/components/render/render.vue';
 	
 	export default {
