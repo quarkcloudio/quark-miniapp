@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       title: '首页',
-      api:'/api/mix/page/index/index'
+      api:'/api/miniapp/page/index/index'
     }
   },
   setup() {

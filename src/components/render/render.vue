@@ -9,7 +9,14 @@
 			</view>
 		</view>
 		<view v-if="body.component === 'page'">
-			page
+			<page
+				:style="body.style"
+				:navBar="body.navBar"
+				:tabBar="body.tabBar"
+				:content="this.body.content"
+				:data="this.data"
+				:callback="this.callback"
+			/>
 		</view>
 	</view>
 	<view v-else>
@@ -24,6 +31,7 @@
  * Render
  */
 import Engine from '@/components/engine/engine.vue';
+import Page from '@/components/page/page.vue';
 
 export default {
 	name: "Render",
