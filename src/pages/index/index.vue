@@ -17,6 +17,14 @@ export default {
     }
   },
   setup() {
+    this.$instance = Taro.getCurrentInstance()
+    const params = this.$instance.router.params
+
+    // 初始化api
+    if (params?.api != undefined) {
+      this.api = params.api
+    }
+
     return {
       Engine,
     }
