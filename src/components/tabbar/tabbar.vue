@@ -22,7 +22,6 @@
 import Engine from '@/components/render/render.vue';
 import { IconFont } from '@nutui/icons-vue-taro';
 
-// test
 export default {
 	name: 'Tabbar',
 	components: { IconFont },
