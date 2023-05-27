@@ -9,8 +9,15 @@
       </view>
     </view>
     <view v-if="body.component === 'page'">
-      <page :style="body.style" :navBar="body.navBar" :tabBar="body.tabBar" :content="this.body.content" :data="this.data"
+      <page :style="body.style" :navbar="body.navbar" :tabbar="body.tabbar" :content="this.body.content" :data="this.data"
         :callback="this.callback" />
+    </view>
+    <view v-if="body.component === 'navbar'">
+      <navbar :style="body.style" :title="body.title" :desc="body.desc" :body="this.body.body" :data="this.data"
+        :callback="this.callback" />
+    </view>
+    <view v-if="body.component === 'tabbar'">
+      <tabbar :style="body.style" :bottom="this.body.bottom" :items="this.body.items" :data="this.data" :callback="this.callback" />
     </view>
   </view>
   <view v-else>
@@ -23,6 +30,8 @@
 <script>
 import Engine from '@/components/engine/engine.vue';
 import Page from '@/components/page/page.vue';
+import Navbar from '@/components/navbar/navbar.vue';
+import Tabbar from '@/components/tabbar/tabbar.vue';
 
 export default {
   name: "Render",

@@ -1,9 +1,13 @@
 <template>
 	<view :style="style">
-		<view v-if="navBar">
+		<view v-if="navbar">
+      <render :body="this.navbar" />
 		</view>
 		<view>
 			<render :body="this.content" />
+		</view>
+    <view v-if="tabbar">
+      <render :body="this.tabbar" />
 		</view>
 	</view>
 </template>
@@ -14,11 +18,11 @@
 	export default {
 		name: 'Page',
 		props: {
-			navBar: {
+			navbar: {
 				type: [Object],
 				default: null
 			},
-			tabBar: {
+			tabbar: {
 				type: [Boolean,Object],
 				default: null
 			},

@@ -8,7 +8,12 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Engine: typeof import('./src/components/engine/engine.vue')['default']
+    Navbar: typeof import('./src/components/navbar/navbar.vue')['default']
+    NutNavbar: typeof import('@nutui/nutui-taro')['Navbar']
+    NutTabbar: typeof import('@nutui/nutui-taro')['Tabbar']
+    NutTabbarItem: typeof import('@nutui/nutui-taro')['TabbarItem']
     Page: typeof import('./src/components/page/page.vue')['default']
     Render: typeof import('./src/components/render/render.vue')['default']
+    Tabbar: typeof import('./src/components/tabbar/tabbar.vue')['default']
   }
 }
