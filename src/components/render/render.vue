@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, computed } from 'vue'
+import { defineProps, toRefs } from 'vue'
 
 // 组件属性
 const props = defineProps<{
@@ -37,7 +37,5 @@ const props = defineProps<{
   callback?: Function | object,
 }>()
 
-const body = computed(() => props.body)
-const data = computed(() => props.data)
-const callback = computed(() => props.callback)
+const { body, data, callback }	= toRefs(props)
 </script>

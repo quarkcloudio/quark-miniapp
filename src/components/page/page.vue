@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, computed } from 'vue'
+import { defineProps, toRefs } from 'vue'
 import * as CSS from 'csstype'
 
 // 组件属性
@@ -26,12 +26,7 @@ const props = defineProps<{
   callback?: Function | object,
 }>()
 
-const navbar = computed(() => props.navbar)
-const tabbar = computed(() => props.tabbar)
-const content = computed(() => props.content)
-const style = computed(() => props.style)
-const data = computed(() => props.data)
-const callback = computed(() => props.callback)
+const { navbar, tabbar, content, style, data, callback }	= toRefs(props)
 </script>
 
 <style lang="scss" ></style>

@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, computed } from 'vue'
+import { defineProps, toRefs } from 'vue'
 import * as CSS from 'csstype'
 
 // 组件属性
@@ -18,12 +18,7 @@ const props = defineProps<{
   callback?: Function | object,
 }>()
 
-const title = computed(() => props.title)
-const desc = computed(() => props.desc)
-const style = computed(() => props.style)
-const body = computed(() => props.body)
-const data = computed(() => props.data)
-const callback = computed(() => props.callback)
+const { title, desc, style, body, data, callback }	= toRefs(props)
 </script>
 
 <style lang="scss" ></style>

@@ -21,6 +21,13 @@ const getComponents = async (api: string ) => {
     url: api,
   })
 
+  if(!result) {
+    Taro.showToast({
+      title: "接口错误！"
+    })
+    return
+  }
+
   // 设置标题
   Taro.setNavigationBarTitle({
     title: result.title
