@@ -1,38 +1,29 @@
 <template>
-  <nut-navbar :style="style" :title="this.title" :desc="this.desc">
-    <render :body="this.body" :data="this.data" :callback="this.callback" />
+  <nut-navbar :style="style" :title="title" :desc="desc">
+    <render :body="body" :data="data" :callback="callback" />
   </nut-navbar>
 </template>
 
-<script>
-import Engine from '@/components/render/render.vue';
+<script setup lang="ts">
+import { defineProps, computed } from 'vue'
+import * as CSS from 'csstype'
 
-export default {
-  name: 'Navbar',
-  props: {
-    title: {
-      type: [String],
-      default: ''
-    },
-    desc: {
-      type: [String],
-      default: ''
-    },
-    body: {
-      type: [String, Number, Object],
-      default: ''
-    },
-    style: {
-      type: [String, Object],
-      default() {
-        return {}
-      }
-    }
-  },
-  data() {
-    return {};
-  }
-};
+// 组件属性
+const props = defineProps<{
+  title?: string,
+  desc?: string,
+  style?: CSS.Properties<string | number>,
+  body?: string | number | object,
+  data?: string | number | object,
+  callback?: Function | object,
+}>()
+
+const title = computed(() => props.title)
+const desc = computed(() => props.desc)
+const style = computed(() => props.style)
+const body = computed(() => props.body)
+const data = computed(() => props.data)
+const callback = computed(() => props.callback)
 </script>
 
 <style lang="scss" ></style>

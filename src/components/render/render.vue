@@ -5,56 +5,39 @@
   <view v-else-if="body.hasOwnProperty('component')">
     <view v-if="body.component === 'view'">
       <view :style="body.style">
-        <render :body="this.body.body" :data="this.data" :callback="this.callback" />
+        <render :body="body.body" :data="data" :callback="callback" />
       </view>
     </view>
     <view v-if="body.component === 'page'">
-      <page :style="body.style" :navbar="body.navbar" :tabbar="body.tabbar" :content="this.body.content" :data="this.data"
-        :callback="this.callback" />
+      <page :style="body.style" :navbar="body.navbar" :tabbar="body.tabbar" :content="body.content" :data="data"
+        :callback="callback" />
     </view>
     <view v-if="body.component === 'navbar'">
-      <navbar :style="body.style" :title="body.title" :desc="body.desc" :body="this.body.body" :data="this.data"
-        :callback="this.callback" />
+      <navbar :style="body.style" :title="body.title" :desc="body.desc" :body="body.body" :data="data"
+        :callback="callback" />
     </view>
     <view v-if="body.component === 'tabbar'">
-      <tabbar :style="body.style" :bottom="this.body.bottom" :items="this.body.items" :data="this.data" :callback="this.callback" />
+      <tabbar :style="body.style" :bottom="body.bottom" :items="body.items" :data="data" :callback="callback" />
     </view>
   </view>
   <view v-else>
-    <view v-for="item in this.body">
-      <render :body="item" :data="this.data" :callback="this.callback" />
+    <view v-for="item in body">
+      <render :body="item" :data="data" :callback="callback" />
     </view>
   </view>
 </template>
 
-<script>
-import Engine from '@/components/engine/engine.vue';
-import Page from '@/components/page/page.vue';
-import Navbar from '@/components/navbar/navbar.vue';
-import Tabbar from '@/components/tabbar/tabbar.vue';
+<script setup lang="ts">
+import { defineProps, computed } from 'vue'
 
-export default {
-  name: "Render",
-  props: {
-    body: {
-      type: String[String, Number, Object],
-      default: ""
-    },
-    data: {
-      type: Object,
-      default() {
-        return {};
-      }
-    },
-    callback: {
-      type: [Object, Function],
-      default() {
-        return {};
-      }
-    }
-  },
-  data() {
-    return {};
-  }
-};
+// 组件属性
+const props = defineProps<{
+  body?: any,
+  data?: string | number | object,
+  callback?: Function | object,
+}>()
+
+const body = computed(() => props.body)
+const data = computed(() => props.data)
+const callback = computed(() => props.callback)
 </script>

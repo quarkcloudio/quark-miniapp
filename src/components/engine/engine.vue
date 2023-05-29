@@ -1,62 +1,56 @@
 <template>
-  <render :body="this.body" />
+  <render :body="body" />
 </template>
 
-<script>
+<script setup lang="ts">
+import { ref, onMounted, onActivated, defineProps } from 'vue'
 import Taro from '@tarojs/taro'
-import Render from '@/components/render/render';
 import { get } from "@/services/action"
 
-export default {
-  name: 'Engine',
-  components: {
-    Render,
-  },
-  props: {
-    title: {
-      type: String,
-      default: '引擎页'
-    },
-    api: {
-      type: String,
-      default: null
-    }
-  },
-  data() {
-    return {
-      body: {}
-    }
-  },
-  mounted() {
-    if (!this.api) {
-      Taro.showToast({
-        title: "接口不能为空"
-      })
-    } else {
-      this.getComponents(this.api)
-    }
-  },
-  activated() {
-    if (!this.api) {
-      Taro.showToast({
-        title: "接口不能为空"
-      })
-    } else {
-      this.getComponents(this.api)
-    }
-  },
-  methods: {
-    async getComponents(api) {
-      let result = await get({
-        url: api,
-      })
-      this.body = result;
-      Taro.setNavigationBarTitle({
-        title: result.title
-      });
-    }
+// 组件属性
+const props = defineProps<{
+  api?: string
+}>()
+
+// 组件数据
+let body = ref({})
+
+// 获取数据
+const getComponents = async (api: string ) => {
+  let result = await get({
+    url: api,
+  })
+
+  // 设置标题
+  Taro.setNavigationBarTitle({
+    title: result.title
+  });
+
+  // 设置组件数据
+  body.value = result;
+};
+
+// 挂载时候调用，只执行一次
+onMounted(() => {
+  if (!props.api) {
+    Taro.showToast({
+      title: "接口不能为空"
+    })
+  } else {
+    getComponents(props.api)
   }
-}
+})
+
+// 进入组件调用，多次执行
+onActivated(() => {
+  if (!props.api) {
+    Taro.showToast({
+      title: "接口不能为空"
+    })
+  } else {
+    getComponents(props.api)
+  }
+})
 </script>
 
 <style lang="scss"></style>

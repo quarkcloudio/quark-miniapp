@@ -1,46 +1,37 @@
 <template>
   <view :style="style">
     <view v-if="navbar">
-      <render :body="this.navbar" />
+      <render :body="navbar" :data="data" :callback="callback" />
     </view>
     <view>
-      <render :body="this.content" />
+      <render :body="content" :data="data" :callback="callback" />
     </view>
     <view v-if="tabbar">
-      <render :body="this.tabbar" />
+      <render :body="tabbar" :data="data" :callback="callback" />
     </view>
   </view>
 </template>
 
-<script>
-import Engine from '@/components/render/render.vue';
+<script setup lang="ts">
+import { defineProps, computed } from 'vue'
+import * as CSS from 'csstype'
 
-export default {
-  name: 'Page',
-  props: {
-    navbar: {
-      type: [Object],
-      default: null
-    },
-    tabbar: {
-      type: [Boolean, Object],
-      default: null
-    },
-    content: {
-      type: [String, Number, Object],
-      default: ''
-    },
-    style: {
-      type: [String, Object],
-      default() {
-          return {}
-      }
-    }
-  },
-  data() {
-    return {};
-  }
-};
+// 组件属性
+const props = defineProps<{
+  navbar?: object,
+  tabbar?: boolean | object,
+  content?: string | number | object,
+  style?: CSS.Properties<string | number>,
+  data?: string | number | object,
+  callback?: Function | object,
+}>()
+
+const navbar = computed(() => props.navbar)
+const tabbar = computed(() => props.tabbar)
+const content = computed(() => props.content)
+const style = computed(() => props.style)
+const data = computed(() => props.data)
+const callback = computed(() => props.callback)
 </script>
 
 <style lang="scss" ></style>

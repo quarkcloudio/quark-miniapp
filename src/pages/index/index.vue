@@ -2,32 +2,18 @@
 	<engine :api="api" />
 </template>
 
-<script>
-import { reactive, toRefs } from 'vue';
-import Engine from '@/components/engine/engine';
+<script setup lang="ts">
+import { ref } from 'vue'
 import Taro from '@tarojs/taro'
-export default {
-  name: 'Index',
-  components: {
-    Engine,
-  },
-  data() {
-    return {
-      api:'/api/miniapp/page/index/index'
-    }
-  },
-  setup() {
-    this.$instance = Taro.getCurrentInstance()
-    const params = this.$instance.router.params
 
-    // 初始化api
-    if (params?.api != undefined) {
-      this.api = params.api
-    }
+let api = ref('/api/miniapp/page/index/index')
+const taroInstance = Taro.getCurrentInstance()
 
-    return {
-      Engine,
-    }
+// 初始化api
+if(taroInstance.router !== null) {
+  const params = taroInstance.router.params
+  if (params?.api !== undefined) {
+    api.value = params.api
   }
 }
 </script>

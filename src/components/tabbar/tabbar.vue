@@ -1,5 +1,5 @@
 <template>
-	<nut-tabbar :style="style" :bottom="bottom" @tab-switch="tabSwitch">
+	<nut-tabbar :style="style" :bottom="bottom">
 		<nut-tabbar-item tab-title="首页">
 			<template #icon>
 				<IconFont name="home"></IconFont>
@@ -18,33 +18,23 @@
 	</nut-tabbar>
 </template>
 
-<script>
-import Engine from '@/components/render/render.vue';
+<script setup lang="ts">
+import { defineProps, computed } from 'vue'
+import * as CSS from 'csstype'
 import { IconFont } from '@nutui/icons-vue-taro';
 
-export default {
-	name: 'Tabbar',
-	components: { IconFont },
-	props: {
-		bottom: {
-			type: [Boolean],
-			default: false
-		},
-		items: {
-			type: [Object],
-			default: null
-		},
-		style: {
-			type: [String, Object],
-			default() {
-				return {}
-			}
-		}
-	},
-	data() {
-		return {};
-	}
-};
+// 组件属性
+const props = defineProps<{
+  bottom?: boolean,
+  items?: Array<any>,
+  style?: CSS.Properties<string | number>,
+  data?: string | number | object,
+  callback?: Function | object,
+}>()
+
+const bottom = computed(() => props.bottom)
+const items = computed(() => props.items)
+const style = computed(() => props.style)
 </script>
 
 <style lang="scss" ></style>
