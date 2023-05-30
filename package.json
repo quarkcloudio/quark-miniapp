@@ -63,7 +63,8 @@
 		"@tarojs/shared": "3.6.6",
 		"@tarojs/taro": "3.6.6",
 		"@tarojs/taro-h5": "3.6.6",
-		"vue": "^3.0.0"
+		"vue": "^3.0.0",
+		"vuex": "^4.1.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.8.0",
