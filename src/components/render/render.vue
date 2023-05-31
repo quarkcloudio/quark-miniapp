@@ -16,9 +16,6 @@
       <navbar :style="body.style" :title="body.title" :desc="body.desc" :body="body.body" :data="data"
         :callback="callback" />
     </view>
-    <view v-if="body.component === 'tabbar'">
-      <tabbar :style="body.style" :bottom="body.bottom" :items="body.items" :data="data" :callback="callback" />
-    </view>
   </view>
   <view v-else>
     <view v-for="item in body">

@@ -1,4 +1,4 @@
 export default definePageConfig({
-  navigationBarTitleText: 'loading',
+  navigationBarTitleText: '自定义导航页',
   navigationStyle: "custom",
 })

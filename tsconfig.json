@@ -24,7 +24,7 @@
     "paths": {
       "@/components/*": ["./src/components/*"],
       "@/services/*": ["./src/services/*"],
-      "@/store/*": ["./src/store/*"],
+      "@/stores/*": ["./src/stores/*"],
       "@/utils/*": ["./src/utils/*"],
     },
   },
