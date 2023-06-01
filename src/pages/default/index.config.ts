@@ -1,4 +1,4 @@
 export default definePageConfig({
-  navigationBarTitleText: '默认导航页',
+  navigationBarTitleText: '默认导航',
   navigationStyle: "default",
 })

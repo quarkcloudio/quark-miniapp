@@ -9,10 +9,13 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Engine: typeof import('./src/components/engine/engine.vue')['default']
     Navbar: typeof import('./src/components/navbar/navbar.vue')['default']
+    NutCol: typeof import('@nutui/nutui-taro')['Col']
     NutGrid: typeof import('@nutui/nutui-taro')['Grid']
     NutGridItem: typeof import('@nutui/nutui-taro')['GridItem']
     NutNavbar: typeof import('@nutui/nutui-taro')['Navbar']
+    NutRow: typeof import('@nutui/nutui-taro')['Row']
     Page: typeof import('./src/components/page/page.vue')['default']
     Render: typeof import('./src/components/render/render.vue')['default']
+    Row: typeof import('./src/components/row/row.vue')['default']
   }
 }
