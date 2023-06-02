@@ -3,14 +3,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onActivated, defineProps } from 'vue'
-import Taro from '@tarojs/taro'
+import { ref, toRefs, defineProps } from 'vue'
+import Taro, { useDidShow } from '@tarojs/taro'
 import { get } from "@/services/action"
 
 // 组件属性
 const props = defineProps<{
   api?: string
 }>()
+
+const { api }	= toRefs(props)
 
 // 组件数据
 let body = ref({})
@@ -37,25 +39,13 @@ const getComponents = async (api: string ) => {
   body.value = result;
 };
 
-// 挂载时候调用，只执行一次
-onMounted(() => {
-  if (!props.api) {
+useDidShow(() => {
+  if (!api?.value) {
     Taro.showToast({
       title: "接口不能为空"
     })
   } else {
-    getComponents(props.api)
-  }
-})
-
-// 进入组件调用，多次执行
-onActivated(() => {
-  if (!props.api) {
-    Taro.showToast({
-      title: "接口不能为空"
-    })
-  } else {
-    getComponents(props.api)
+    getComponents(api?.value)
   }
 })
 </script>
