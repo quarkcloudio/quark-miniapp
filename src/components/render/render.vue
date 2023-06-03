@@ -32,6 +32,17 @@
     <view v-if="body.component === 'indicator'">
       <indicator :style="body.style" :current="body.current" :size="body.size" :block="body.block" :align="body.align" :fillZero="body.fillZero" :body="body.body" :data="data" :callback="callback" />
     </view>
+    <view v-if="body.component === 'fixednav'">
+      <fixednav :style="body.style" :visible="body.visible" :navList="body.navList" :activeColor="body.activeColor" :activeText="body.activeText" :unActiveText="body.unActiveText" :type="body.type" :overlay="body.overlay" :position="body.position" :body="body.body" :data="data" :callback="callback" />
+    </view>
+    <view v-if="body.component === 'menu'">
+      <nut-menu :style="body.style" :activeColor="body.activeColor" :closeOnClickOverlay="body.closeOnClickOverlay" :scrollFixed="body.scrollFixed" :lockScroll="body.lockScroll">
+        <nut-menu-item v-for="item in body" :style="item.style" :title="item.title" :options="item.options" :disabled="item.disabled" :cols="item.cols" :direction="item.direction" />
+      </nut-menu>
+    </view>
+    <view v-if="body.component === 'tabs'">
+      <tabs :style="body.style" :color="body.color" :background="body.background" :direction="body.direction" :type="body.type" :swipeable="body.swipeable" :titleScroll="body.titleScroll" :ellipsis="body.ellipsis" :animatedTime="body.animatedTime" :titleGutter="body.titleGutter" :size="body.size" :autoHeight="body.autoHeight" :name="body.name" :body="body.body" :data="data" :callback="callback" />
+    </view>
     <view v-if="body.component === 'page'">
       <page :style="body.style" :navbar="body.navbar" :tabbar="body.tabbar" :content="body.content" :data="data"
         :callback="callback" />
