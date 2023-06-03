@@ -29,6 +29,9 @@
     <view v-if="body.component === 'elevator'">
       <elevator :style="body.style" :height="body.height" :acceptKey="body.acceptKey" :indexList="body.indexList" :isSticky="body.isSticky" :spaceHeight="body.spaceHeight" :titleHeight="body.titleHeight" :body="body.body" :data="data" :callback="callback" />
     </view>
+    <view v-if="body.component === 'indicator'">
+      <indicator :style="body.style" :current="body.current" :size="body.size" :block="body.block" :align="body.align" :fillZero="body.fillZero" :body="body.body" :data="data" :callback="callback" />
+    </view>
     <view v-if="body.component === 'page'">
       <page :style="body.style" :navbar="body.navbar" :tabbar="body.tabbar" :content="body.content" :data="data"
         :callback="callback" />
