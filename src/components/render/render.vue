@@ -9,10 +9,22 @@
       </view>
     </view>
     <view v-if="body.component === 'image'">
-      <image
-        :style="body.style"
-        :src="body.src"
-      />
+      <image :style="body.style" :src="body.src" />
+    </view>
+    <view v-if="body.component === 'icon'">
+      <icon :style="body.style" :name="body.name" :color="body.color" :size="body.size" :tag="body.tag" />
+    </view>
+    <view v-if="body.component === 'row'">
+      <row :style="body.style" :type="body.type" :justify="body.justify" :align="body.align" :flexWrap="body.flexWrap" :body="body.body" :data="data" :callback="callback" />
+    </view>
+    <view v-if="body.component === 'divider'">
+      <divider :style="body.style" :dashed="body.dashed" :hairline="body.hairline" :contentPosition="body.contentPosition" :direction="body.direction" :body="body.body" :data="data" :callback="callback" />
+    </view>
+    <view v-if="body.component === 'grid'">
+      <divider :style="body.style" :columnNum="body.columnNum" :border="body.border" :gutter="body.gutter" :center="body.center" :square="body.square" :reverse="body.reverse" :direction="body.direction" :body="body.body" :data="data" :callback="callback" />
+    </view>
+    <view v-if="body.component === 'sticky'">
+      <sticky :style="body.style" :position="body.position" :top="body.top" :zIndex="body.zIndex" :parentHeight="body.parentHeight" :body="body.body" :data="data" :callback="callback" />
     </view>
     <view v-if="body.component === 'page'">
       <page :style="body.style" :navbar="body.navbar" :tabbar="body.tabbar" :content="body.content" :data="data"
@@ -21,9 +33,6 @@
     <view v-if="body.component === 'navbar'">
       <navbar :style="body.style" :title="body.title" :desc="body.desc" :body="body.body" :data="data"
         :callback="callback" />
-    </view>
-    <view v-if="body.component === 'row'">
-      <row :style="body.style" :type="body.type" :justify="body.justify" :align="body.align" :flexWrap="body.flexWrap" :body="body.body" :data="data" :callback="callback" />
     </view>
     <view v-if="body.component === 'swiper'">
       <nut-swiper

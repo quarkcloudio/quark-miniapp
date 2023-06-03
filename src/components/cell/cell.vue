@@ -32,8 +32,8 @@ const props = defineProps<{
   url?: string,
   to?: string,
   style?: CSS.Properties<string | number>,
-  body?: string | number | object,
-  data?: string | number | object,
+  body?: any,
+  data?: any,
   callback?: Function | object,
 }>()
 

@@ -1,11 +1,13 @@
 <template>
-  <nut-cell-group
+  <nut-sticky
     :style="style"
-    :title="title"
-    :desc="desc"
+    :position="position"
+    :top="top"
+    :zIndex="zIndex"
+    :parentHeight="parentHeight"
   >
     <render :body="body" :data="data" :callback="callback" />
-  </nut-cell-group>
+  </nut-sticky>
 </template>
 
 <script setup lang="ts">
@@ -14,15 +16,17 @@ import * as CSS from 'csstype'
 
 // 组件属性
 const props = defineProps<{
-  title?: string,
-  desc?: string,
+  position?: string,
+  top?: number,
+  zIndex?: number,
+  parentHeight?: number,
   style?: CSS.Properties<string | number>,
   body?: any,
   data?: any,
   callback?: Function | object,
 }>()
 
-const { title, desc, style, body, data, callback }	= toRefs(props)
+const { position, top, zIndex, parentHeight, style, body, data, callback }	= toRefs(props)
 </script>
 
 <style lang="scss" ></style>

@@ -13,8 +13,8 @@ const props = defineProps<{
   title?: string,
   desc?: string,
   style?: CSS.Properties<string | number>,
-  body?: string | number | object,
-  data?: string | number | object,
+  body?: any,
+  data?: any,
   callback?: Function | object,
 }>()
 

@@ -1,11 +1,13 @@
 <template>
-  <nut-cell-group
+  <nut-divider
     :style="style"
-    :title="title"
-    :desc="desc"
+    :dashed="dashed"
+    :hairline="hairline"
+    :contentPosition="contentPosition"
+    :direction="direction"
   >
     <render :body="body" :data="data" :callback="callback" />
-  </nut-cell-group>
+  </nut-divider>
 </template>
 
 <script setup lang="ts">
@@ -14,15 +16,17 @@ import * as CSS from 'csstype'
 
 // 组件属性
 const props = defineProps<{
-  title?: string,
-  desc?: string,
+  dashed?: boolean,
+  hairline?: boolean,
+  contentPosition?: string,
+  direction?: string,
   style?: CSS.Properties<string | number>,
   body?: any,
   data?: any,
   callback?: Function | object,
 }>()
 
-const { title, desc, style, body, data, callback }	= toRefs(props)
+const { dashed, hairline, contentPosition, direction, style, body, data, callback }	= toRefs(props)
 </script>
 
 <style lang="scss" ></style>

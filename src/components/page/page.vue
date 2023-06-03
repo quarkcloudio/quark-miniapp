@@ -22,7 +22,7 @@ const props = defineProps<{
   tabbar?: boolean | object,
   content?: string | number | object,
   style?: CSS.Properties<string | number>,
-  data?: string | number | object,
+  data?: any,
   callback?: Function | object,
 }>()
 
