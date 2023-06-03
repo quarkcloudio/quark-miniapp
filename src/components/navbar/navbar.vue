@@ -1,5 +1,16 @@
 <template>
-  <nut-navbar :style="style" :title="title" :desc="desc">
+  <nut-navbar
+    :style="style"
+    :title="title"
+    :desc="desc"
+    :leftShow="leftShow"
+    :titleIcon="titleIcon"
+    :border="border"
+    :fixed="fixed"
+    :placeholder="placeholder"
+    :safeAreaInsetTop="safeAreaInsetTop"
+    :zIndex="zIndex"
+  >
     <render :body="body" :data="data" :callback="callback" />
   </nut-navbar>
 </template>
@@ -12,13 +23,20 @@ import * as CSS from 'csstype'
 const props = defineProps<{
   title?: string,
   desc?: string,
+  leftShow?: boolean,
+  titleIcon?: boolean,
+  border?: boolean,
+  fixed?: boolean,
+  placeholder?: boolean,
+  safeAreaInsetTop?: boolean,
+  zIndex?: number | string,
   style?: CSS.Properties<string | number>,
   body?: any,
   data?: any,
   callback?: Function | object,
 }>()
 
-const { title, desc, style, body, data, callback }	= toRefs(props)
+const { title, desc, leftShow, style, body, data, callback }	= toRefs(props)
 </script>
 
 <style lang="scss" ></style>

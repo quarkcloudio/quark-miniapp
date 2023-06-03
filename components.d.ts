@@ -16,6 +16,7 @@ declare module '@vue/runtime-core' {
     Grid: typeof import('./src/components/grid/grid.vue')['default']
     Icon: typeof import('./src/components/icon/icon.vue')['default']
     Indicator: typeof import('./src/components/indicator/indicator.vue')['default']
+    Menu: typeof import('./src/components/menu/menu.vue')['default']
     Navbar: typeof import('./src/components/navbar/navbar.vue')['default']
     NutCol: typeof import('@nutui/nutui-taro')['Col']
     NutDivider: typeof import('@nutui/nutui-taro')['Divider']
