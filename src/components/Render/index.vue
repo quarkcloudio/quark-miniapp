@@ -32,8 +32,8 @@
     <view v-if="body.component === 'indicator'">
       <indicator :style="body.style" :current="body.current" :size="body.size" :block="body.block" :align="body.align" :fillZero="body.fillZero" :body="body.body" :data="data" :callback="callback" />
     </view>
-    <view v-if="body.component === 'fixednav'">
-      <fixednav :style="body.style" :visible="body.visible" :navList="body.navList" :activeColor="body.activeColor" :activeText="body.activeText" :unActiveText="body.unActiveText" :type="body.type" :overlay="body.overlay" :position="body.position" :body="body.body" :data="data" :callback="callback" />
+    <view v-if="body.component === 'fixedNav'">
+      <fixed-nav :style="body.style" :visible="body.visible" :navList="body.navList" :activeColor="body.activeColor" :activeText="body.activeText" :unActiveText="body.unActiveText" :type="body.type" :overlay="body.overlay" :position="body.position" :body="body.body" :data="data" :callback="callback" />
     </view>
     <view v-if="body.component === 'menu'">
       <nut-menu :style="body.style" :activeColor="body.activeColor" :closeOnClickOverlay="body.closeOnClickOverlay" :scrollFixed="body.scrollFixed" :lockScroll="body.lockScroll">
@@ -43,13 +43,17 @@
     <view v-if="body.component === 'tabs'">
       <tabs :style="body.style" :color="body.color" :background="body.background" :direction="body.direction" :type="body.type" :swipeable="body.swipeable" :titleScroll="body.titleScroll" :ellipsis="body.ellipsis" :animatedTime="body.animatedTime" :titleGutter="body.titleGutter" :size="body.size" :autoHeight="body.autoHeight" :name="body.name" :body="body.body" :data="data" :callback="callback" />
     </view>
+    <view v-if="body.component === 'form'">
+      <pro-form :style="body.style" :values="body.values" :rules="body.rules" :body="body.body" :data="data" :callback="callback" />
+    </view>
+    <view v-if="fieldName.indexOf(body.component + '|') !== -1">
+      <field v-bind="{...body}" />
+    </view>
     <view v-if="body.component === 'page'">
-      <page :style="body.style" :navbar="body.navbar" :tabbar="body.tabbar" :content="body.content" :data="data"
-        :callback="callback" />
+      <page :style="body.style" :navbar="body.navbar" :tabbar="body.tabbar" :content="body.content" :data="data" :callback="callback" />
     </view>
     <view v-if="body.component === 'navbar'">
-      <navbar :style="body.style" :title="body.title" :desc="body.desc" :body="body.body" :data="data"
-        :callback="callback" />
+      <navbar :style="body.style" :title="body.title" :desc="body.desc" :body="body.body" :data="data" :callback="callback" />
     </view>
     <view v-if="body.component === 'swiper'">
       <nut-swiper
@@ -82,6 +86,8 @@
 
 <script setup lang="ts">
 import { defineProps, toRefs } from 'vue'
+
+const fieldName = 'inputField|';
 
 // 组件属性
 const props = defineProps<{
