@@ -44,10 +44,10 @@
       <tabs :style="body.style" :color="body.color" :background="body.background" :direction="body.direction" :type="body.type" :swipeable="body.swipeable" :titleScroll="body.titleScroll" :ellipsis="body.ellipsis" :animatedTime="body.animatedTime" :titleGutter="body.titleGutter" :size="body.size" :autoHeight="body.autoHeight" :name="body.name" :body="body.body" :data="data" :callback="callback" />
     </view>
     <view v-if="body.component === 'form'">
-      <pro-form :style="body.style" :values="body.values" :rules="body.rules" :body="body.body" :data="data" :callback="callback" />
+      <pro-form :style="body.style" :modelValue="body.modelValue" :rules="body.rules" :body="body.body" :data="data" :callback="callback" />
     </view>
     <view v-if="fieldName.indexOf(body.component + '|') !== -1">
-      <field v-bind="{...body}" />
+      <pro-form-field v-bind="{...body}" />
     </view>
     <view v-if="body.component === 'page'">
       <page :style="body.style" :navbar="body.navbar" :tabbar="body.tabbar" :content="body.content" :data="data" :callback="callback" />

@@ -1,5 +1,5 @@
 <template>
-  <nut-form :model-value="values" :rules="rules" :style="style">
+  <nut-form :model-value="modelValue" :rules="rules" :style="style">
     <render :body="body" :data="data" :callback="callback" />
   </nut-form>
 </template>
@@ -10,7 +10,7 @@ import * as CSS from 'csstype'
 
 // 组件属性
 const props = defineProps<{
-  values?: object,
+  modelValue?: object,
   rules?: any,
   style?: CSS.Properties<string | number>,
   body?: any,
@@ -18,7 +18,7 @@ const props = defineProps<{
   callback?: Function | object,
 }>()
 
-const { values, rules, style, body, data, callback }	= toRefs(props)
+const { modelValue, rules, style, body, data, callback }	= toRefs(props)
 </script>
 
 <style lang="scss" ></style>
