@@ -14,6 +14,9 @@
     <view v-if="body.component === 'icon'">
       <icon :style="body.style" :name="body.name" :color="body.color" :size="body.size" :tag="body.tag" />
     </view>
+    <view v-if="body.component === 'action'">
+      <action v-bind="{...body}" />
+    </view>
     <view v-if="body.component === 'row'">
       <row :style="body.style" :type="body.type" :justify="body.justify" :align="body.align" :flexWrap="body.flexWrap" :body="body.body" :data="data" :callback="callback" />
     </view>

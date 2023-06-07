@@ -1,5 +1,5 @@
 <template>
-	<engine api="/api/miniapp/page/my/index" />
+	<engine api="/api/miniapp/page/index/index" />
 </template>
 
 <script setup lang="ts">

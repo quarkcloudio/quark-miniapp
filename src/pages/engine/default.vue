@@ -7,7 +7,7 @@ import { ref } from 'vue'
 import { useRouter, useDidShow } from '@tarojs/taro'
 
 const router = useRouter()
-let api = ref('/api/miniapp/page/index/index')
+let api = ref(router.params?.api)
 
 useDidShow(() => {
   if (router.params?.api !== undefined) {

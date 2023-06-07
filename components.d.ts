@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Action: typeof import('./src/components/Action/index.vue')['default']
     Cell: typeof import('./src/components/Cell/index.vue')['default']
     CellGroup: typeof import('./src/components/CellGroup/index.vue')['default']
     Divider: typeof import('./src/components/Divider/index.vue')['default']
@@ -17,6 +18,7 @@ declare module '@vue/runtime-core' {
     Icon: typeof import('./src/components/Icon/index.vue')['default']
     Indicator: typeof import('./src/components/Indicator/index.vue')['default']
     Navbar: typeof import('./src/components/Navbar/index.vue')['default']
+    NutButton: typeof import('@nutui/nutui-taro')['Button']
     NutCol: typeof import('@nutui/nutui-taro')['Col']
     NutDivider: typeof import('@nutui/nutui-taro')['Divider']
     NutElevator: typeof import('@nutui/nutui-taro')['Elevator']
