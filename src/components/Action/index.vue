@@ -180,7 +180,7 @@ const click = () => {
         })
         break;
       default:
-        Taro.redirectTo({
+        Taro.navigateTo({
           url: href.value
         })
         break;
