@@ -15,7 +15,7 @@
       <icon :style="body.style" :name="body.name" :color="body.color" :size="body.size" :tag="body.tag" />
     </view>
     <view v-if="body.component === 'action'">
-      <action v-bind="{...body}" />
+      <action v-bind="{...body}" :body="body.body" :data="data" :callback="callback" />
     </view>
     <view v-if="body.component === 'row'">
       <row :style="body.style" :type="body.type" :justify="body.justify" :align="body.align" :flexWrap="body.flexWrap" :body="body.body" :data="data" :callback="callback" />
@@ -47,10 +47,7 @@
       <tabs :style="body.style" :color="body.color" :background="body.background" :direction="body.direction" :type="body.type" :swipeable="body.swipeable" :titleScroll="body.titleScroll" :ellipsis="body.ellipsis" :animatedTime="body.animatedTime" :titleGutter="body.titleGutter" :size="body.size" :autoHeight="body.autoHeight" :name="body.name" :body="body.body" :data="data" :callback="callback" />
     </view>
     <view v-if="body.component === 'form'">
-      <pro-form :style="body.style" :modelValue="body.modelValue" :rules="body.rules" :actions="body.actions" :body="body.body" :data="data" :callback="callback" />
-    </view>
-    <view v-if="fieldName.indexOf(body.component + '|') !== -1">
-      <pro-form-field v-bind="{...body}" />
+      <pro-form :style="body.style" :api="body.api" :apiType="body.apiType" :modelValue="body.modelValue" :rules="body.rules" :actions="body.actions" :body="body.body" :data="data" :callback="callback" />
     </view>
     <view v-if="body.component === 'page'">
       <page :style="body.style" :navbar="body.navbar" :tabbar="body.tabbar" :content="body.content" :data="data" :callback="callback" />
@@ -89,8 +86,6 @@
 
 <script setup lang="ts">
 import { defineProps, toRefs } from 'vue'
-
-const fieldName = 'inputField|';
 
 // 组件属性
 const props = defineProps<{

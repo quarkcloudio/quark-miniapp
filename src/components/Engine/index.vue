@@ -25,7 +25,8 @@ const getComponents = async (api: string ) => {
 
   if(!result) {
     Taro.showToast({
-      title: "接口错误！"
+      title: "接口错误！",
+      icon: 'error',
     })
     return
   }
@@ -42,7 +43,8 @@ const getComponents = async (api: string ) => {
 useDidShow(() => {
   if (!api?.value) {
     Taro.showToast({
-      title: "接口不能为空"
+      title: "接口不能为空",
+      icon: 'error',
     })
   } else {
     getComponents(api?.value)

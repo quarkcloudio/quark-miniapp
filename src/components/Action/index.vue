@@ -102,7 +102,7 @@ const props = defineProps<{
   style?: CSS.Properties<string | number>,
   body?: any,
   data?: any,
-  callback?: Function | object,
+  callback?: Function,
 }>()
 
 const { 
@@ -154,6 +154,7 @@ const {
   reload,
   withLoading,
   style,
+  callback
  }	= toRefs(props)
 
 const click = () => {
@@ -186,6 +187,10 @@ const click = () => {
         break;
     }
     return
+  }
+
+  if(actionType?.value == "submit") {
+    callback?.value?.()
   }
 }
 
