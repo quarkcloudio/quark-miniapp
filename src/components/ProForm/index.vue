@@ -1,6 +1,7 @@
 <template>
   <nut-form :model-value="modelValue" :rules="rules" :style="style">
     <render :body="body" :data="data" :callback="callback" />
+    <render :body="actions" :data="data" :callback="callback" />
   </nut-form>
 </template>
 
@@ -12,6 +13,7 @@ import * as CSS from 'csstype'
 const props = defineProps<{
   modelValue?: object,
   rules?: any,
+  actions?: Array<any>,
   style?: CSS.Properties<string | number>,
   body?: any,
   data?: any,

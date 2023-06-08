@@ -47,7 +47,7 @@
       <tabs :style="body.style" :color="body.color" :background="body.background" :direction="body.direction" :type="body.type" :swipeable="body.swipeable" :titleScroll="body.titleScroll" :ellipsis="body.ellipsis" :animatedTime="body.animatedTime" :titleGutter="body.titleGutter" :size="body.size" :autoHeight="body.autoHeight" :name="body.name" :body="body.body" :data="data" :callback="callback" />
     </view>
     <view v-if="body.component === 'form'">
-      <pro-form :style="body.style" :modelValue="body.modelValue" :rules="body.rules" :body="body.body" :data="data" :callback="callback" />
+      <pro-form :style="body.style" :modelValue="body.modelValue" :rules="body.rules" :actions="body.actions" :body="body.body" :data="data" :callback="callback" />
     </view>
     <view v-if="fieldName.indexOf(body.component + '|') !== -1">
       <pro-form-field v-bind="{...body}" />
