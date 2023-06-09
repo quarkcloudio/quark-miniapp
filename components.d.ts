@@ -19,6 +19,8 @@ declare module '@vue/runtime-core' {
     Indicator: typeof import('./src/components/Indicator/index.vue')['default']
     Navbar: typeof import('./src/components/Navbar/index.vue')['default']
     NutButton: typeof import('@nutui/nutui-taro')['Button']
+    NutCalendar: typeof import('@nutui/nutui-taro')['Calendar']
+    NutCell: typeof import('@nutui/nutui-taro')['Cell']
     NutCol: typeof import('@nutui/nutui-taro')['Col']
     NutDivider: typeof import('@nutui/nutui-taro')['Divider']
     NutElevator: typeof import('@nutui/nutui-taro')['Elevator']

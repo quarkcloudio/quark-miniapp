@@ -12,6 +12,24 @@
       :showErrorLine="item.showErrorLine"
       :showErrorMessage="item.showErrorMessage"
     >
+      <view v-if="item.component === 'calendarField'">
+        <nut-cell
+          :showIcon="true"
+          title="选择单个日期"
+          :desc="fields[item.name] ? `${fields[item.name]}` : '请选择'"
+          @click="openSwitch(item.name+'IsVisible')"
+        >
+        </nut-cell>
+        <nut-calendar
+          v-model:visible="isVisible"
+          :default-value="fields[item.name]"
+          @close="closeSwitch(item.name+'IsVisible')"
+          @choose="setChooseValue"
+          :start-date="`2022-01-11`"
+          :end-date="`2022-11-30`"
+        >
+        </nut-calendar>
+      </view>
       <view v-if="item.component === 'inputField'">
         <nut-input
           v-model="fields[item.name]"
@@ -127,6 +145,17 @@ const submit = async () => {
     })
   }
 }
+
+const openSwitch = param => {
+  fields[`${param}`] = true;
+};
+const closeSwitch = param => {
+  fields[`${param}`] = false;
+};
+const setChooseValue = param => {
+  console.log(param)
+};
+
 </script>
 
 <style lang="scss" ></style>
