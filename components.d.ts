@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Action: typeof import('./src/components/Action/index.vue')['default']
+    Calendar: typeof import('./src/components/ProFormField/calendar.vue')['default']
     Cell: typeof import('./src/components/Cell/index.vue')['default']
     CellGroup: typeof import('./src/components/CellGroup/index.vue')['default']
     Divider: typeof import('./src/components/Divider/index.vue')['default']
