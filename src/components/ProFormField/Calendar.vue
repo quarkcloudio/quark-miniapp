@@ -56,12 +56,18 @@ const emit = defineEmits([
 
 const { modelValue, type, poppable, isAutoBackFill, title, startDate, endDate, showToday, startText, endText, confirmText, showTitle, showSubTitle, toDateAnimation, firstDayOfWeek }	= toRefs(props)
 const isVisible	= ref(false)
+
+// 打开显示
 const openSwitch = () => {
   isVisible.value = true;
 };
+
+// 关闭显示
 const closeSwitch = () => {
   isVisible.value = false;
 };
+
+// 设置选定值
 const setChooseValue = param => {
   emit('update:modelValue',param[3])
 };
