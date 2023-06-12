@@ -48,9 +48,14 @@
   
   // 设置选定值
   const change = param => {
+    emit('update:modelValue', param)
+  };
 
-    console.log(param)
-    emit('update:modelValue',param)
+  // 设置属性文案
+  const getOptionText = () => {
+    options?.value?.map(() => {
+
+    });
   };
   </script>
   
