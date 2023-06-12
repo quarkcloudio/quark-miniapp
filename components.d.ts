@@ -8,7 +8,8 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Action: typeof import('./src/components/Action/index.vue')['default']
-    Calendar: typeof import('./src/components/ProFormField/calendar.vue')['default']
+    Calendar: typeof import('./src/components/ProFormField/Calendar.vue')['default']
+    Cascader: typeof import('./src/components/ProFormField/Cascader.vue')['default']
     Cell: typeof import('./src/components/Cell/index.vue')['default']
     CellGroup: typeof import('./src/components/CellGroup/index.vue')['default']
     Divider: typeof import('./src/components/Divider/index.vue')['default']
@@ -21,7 +22,7 @@ declare module '@vue/runtime-core' {
     Navbar: typeof import('./src/components/Navbar/index.vue')['default']
     NutButton: typeof import('@nutui/nutui-taro')['Button']
     NutCalendar: typeof import('@nutui/nutui-taro')['Calendar']
-    NutCell: typeof import('@nutui/nutui-taro')['Cell']
+    NutCascader: typeof import('@nutui/nutui-taro')['Cascader']
     NutCol: typeof import('@nutui/nutui-taro')['Col']
     NutDivider: typeof import('@nutui/nutui-taro')['Divider']
     NutElevator: typeof import('@nutui/nutui-taro')['Elevator']

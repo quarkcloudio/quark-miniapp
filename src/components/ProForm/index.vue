@@ -54,6 +54,20 @@
           :alwaysSystem ="item.alwaysSystem"
         />
       </view>
+      <view v-if="item.component === 'cascaderField'">
+        <cascader
+          v-model="fields[item.name]"
+          :options="item.options"
+          :valueKey="item.valueKey"
+          :textKey="item.textKey"
+          :childrenKey="item.childrenKey"
+          :convertConfig="item.convertConfig"
+          :title="item.title"
+          :closeIconPosition="item.closeIconPosition"
+          :closeable="item.closeable"
+          :poppable="item.poppable"
+        />
+      </view>
     </nut-form-item>
     <render :body="actions" :data="data" :callback="submit" />
   </nut-form>
