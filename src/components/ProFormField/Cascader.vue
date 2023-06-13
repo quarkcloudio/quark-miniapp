@@ -1,7 +1,7 @@
 <template>
     <view>
       <view @click="isVisible = true">
-        {{modelValue ? `${modelValue}` : '请选择'}}
+        {{getOptionText() ? `${getOptionText()}` : '请选择'}}
       </view>
       <nut-cascader
         :model="modelValue"
@@ -53,9 +53,14 @@
 
   // 设置属性文案
   const getOptionText = () => {
-    options?.value?.map(() => {
-
+    let optionText = ""
+    options?.value?.map((value) => {
+      if(value.value == modelValue?.value) {
+        optionText = value.text
+      }
     });
+
+    return optionText
   };
   </script>
   
