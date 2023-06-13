@@ -31,6 +31,35 @@
           :firstDayOfWeek="item.firstDayOfWeek"
         />
       </view>
+      <view v-if="item.component === 'cascaderField'">
+        <cascader
+          v-model="fields[item.name]"
+          :options="item.options"
+          :valueKey="item.valueKey"
+          :textKey="item.textKey"
+          :childrenKey="item.childrenKey"
+          :convertConfig="item.convertConfig"
+          :title="item.title"
+          :closeIconPosition="item.closeIconPosition"
+          :closeable="item.closeable"
+          :poppable="item.poppable"
+        />
+      </view>
+      <view v-if="item.component === 'checkboxField'">
+        <nut-checkbox-group v-model="fields[item.name]" :max="item.max" :disabled="item.disabled">
+          <nut-checkbox
+            v-for="subItem in item.options"
+            :disabled="subItem.disabled"
+            :textPosition="subItem.textPosition"
+            :iconSize="subItem.iconSize"
+            :label="subItem.value"
+            :indeterminate="subItem.indeterminate"
+            :shape="subItem.shape"
+          >
+            {{subItem.label}}
+          </nut-checkbox>
+        </nut-checkbox-group>
+      </view>
       <view v-if="item.component === 'inputField'">
         <nut-input
           v-model="fields[item.name]"
@@ -52,20 +81,6 @@
           :confirmType ="item.confirmType"
           :adjustPosition ="item.adjustPosition"
           :alwaysSystem ="item.alwaysSystem"
-        />
-      </view>
-      <view v-if="item.component === 'cascaderField'">
-        <cascader
-          v-model="fields[item.name]"
-          :options="item.options"
-          :valueKey="item.valueKey"
-          :textKey="item.textKey"
-          :childrenKey="item.childrenKey"
-          :convertConfig="item.convertConfig"
-          :title="item.title"
-          :closeIconPosition="item.closeIconPosition"
-          :closeable="item.closeable"
-          :poppable="item.poppable"
         />
       </view>
     </nut-form-item>
