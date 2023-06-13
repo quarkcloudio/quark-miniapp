@@ -26,7 +26,7 @@
   
   // 组件属性
   const props = defineProps<{
-    modelValue?: string;
+    modelValue?: Array<string>;
     options ?: Array<any>;
     valueKey?: string;
     textKey?: string;
@@ -54,13 +54,15 @@
   // 设置属性文案
   const getOptionText = () => {
     let optionText = ""
-    options?.value?.map((value) => {
-      if(value.value == modelValue?.value) {
-        optionText = value.text
-      }
-    });
+    modelValue?.value?.map((mv) => {
+      options?.value?.map((ov) => {
+        if(mv == ov.value) {
+          optionText = ov.text+","
+        }
+      });
+    })
 
-    return optionText
+    return optionText.replace(/,$/, '')
   };
   </script>
   
