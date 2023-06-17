@@ -83,13 +83,26 @@
           :alwaysSystem ="item.alwaysSystem"
         />
       </view>
+      <view v-if="item.component === 'inputNumberField'">
+        <nut-input-number
+          v-model="fields[item.name]"
+          :inputWidth="item.inputWidth"
+          :buttonSize="item.buttonSize"
+          :min="item.min"
+          :max="item.max"
+          :step="item.step"
+          :decimalPlaces="item.decimalPlaces"
+          :disabled="item.disabled"
+          :readonly="item.readonly"
+        />
+      </view>
     </nut-form-item>
     <render :body="actions" :data="data" :callback="submit" />
   </nut-form>
 </template>
 
 <script setup lang="ts">
-import { defineProps, toRefs, reactive } from 'vue'
+import { toRefs, reactive } from 'vue'
 import * as CSS from 'csstype'
 import Taro from '@tarojs/taro'
 import { post, get } from '@/services/action';
