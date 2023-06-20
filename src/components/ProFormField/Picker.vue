@@ -3,20 +3,22 @@
     <view @click="openSwitch">
       {{modelValue ? `${modelValue}` : '请选择'}}
     </view>
-    <nut-picker
-      :v-model="modelValue"
-      :columns="columns"
-      :title="title"
-      :cancelText="cancelText"
-      :okText="okText"
-      :threeDimensional="threeDimensional"
-      :swipeDuration="swipeDuration"
-      :visibleOptionNum="visibleOptionNum"
-      :optionHeight="optionHeight"
-      :showToolbar="showToolbar"
-      @confirm="confirm"
-    >
-    </nut-picker>
+    <nut-popup :style="{ padding: '30px 50px' }" v-model:visible="isVisible">
+      <nut-picker
+        :v-model="modelValue"
+        :columns="columns"
+        :title="title"
+        :cancelText="cancelText"
+        :okText="okText"
+        :threeDimensional="threeDimensional"
+        :swipeDuration="swipeDuration"
+        :visibleOptionNum="visibleOptionNum"
+        :optionHeight="optionHeight"
+        :showToolbar="showToolbar"
+        @confirm="confirm"
+      >
+      </nut-picker>
+    </nut-popup>
   </view>
 </template>
 
@@ -54,6 +56,7 @@ const openSwitch = () => {
 const confirm = ( selectedValue, selectedOptions ) => {
   emit('update:modelValue',selectedValue)
   isVisible.value = false;
+  console.log(selectedOptions)
 };
 </script>
 
