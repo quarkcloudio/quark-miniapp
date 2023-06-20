@@ -60,6 +60,37 @@
           </nut-checkbox>
         </nut-checkbox-group>
       </view>
+      <view v-if="item.component === 'radioField'">
+        <nut-cell-group v-model="fields[item.name]" :textPosition="item.textPosition" :direction="item.direction">
+          <nut-radio
+            v-for="subItem in item.options"
+            :disabled="subItem.disabled"
+            :iconSize="subItem.iconSize"
+            :label="subItem.value"
+            :shape="subItem.shape"
+          >
+            {{subItem.label}}
+          </nut-radio>
+        </nut-cell-group>
+      </view>
+      <view v-if="item.component === 'rangeField'">
+        <nut-range
+          v-model="fields[item.name]"
+          :range="item.range"
+          :max="item.max"
+          :min="item.min"
+          :step="item.step"
+          :disabled="item.disabled"
+          :vertical="item.vertical"
+          :hiddenRange="item.hiddenRange"
+          :hiddenTag="item.hiddenTag"
+          :activeColor="item.activeColor"
+          :inactiveColor="item.inactiveColor"
+          :buttonColor="item.buttonColor"
+          :marks="item.marks"
+        >
+        </nut-range>
+      </view>
       <view v-if="item.component === 'inputField'">
         <nut-input
           v-model="fields[item.name]"
