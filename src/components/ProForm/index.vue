@@ -91,6 +91,21 @@
         >
         </nut-range>
       </view>
+      <view v-if="item.component === 'rateField'">
+        <nut-rate
+          v-model="fields[item.name]"
+          :count="item.count"
+          :activeColor="item.activeColor"
+          :voidColor="item.voidColor"
+          :allowHalf="item.allowHalf"
+          :readonly="item.readonly"
+          :disabled="item.disabled"
+          :spacing="item.spacing"
+          :size="item.size"
+          :customIcon="item.customIcon"
+        >
+        </nut-rate>
+      </view>
       <view v-if="item.component === 'inputField'">
         <nut-input
           v-model="fields[item.name]"

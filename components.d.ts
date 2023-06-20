@@ -43,6 +43,7 @@ declare module '@vue/runtime-core' {
     NutNavbar: typeof import('@nutui/nutui-taro')['Navbar']
     NutRadio: typeof import('@nutui/nutui-taro')['Radio']
     NutRange: typeof import('@nutui/nutui-taro')['Range']
+    NutRate: typeof import('@nutui/nutui-taro')['Rate']
     NutRow: typeof import('@nutui/nutui-taro')['Row']
     NutSticky: typeof import('@nutui/nutui-taro')['Sticky']
     NutSwiper: typeof import('@nutui/nutui-taro')['Swiper']
