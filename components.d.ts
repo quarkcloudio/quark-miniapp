@@ -52,6 +52,7 @@ declare module '@vue/runtime-core' {
     NutSwiperItem: typeof import('@nutui/nutui-taro')['SwiperItem']
     NutTabPane: typeof import('@nutui/nutui-taro')['TabPane']
     NutTabs: typeof import('@nutui/nutui-taro')['Tabs']
+    NutTextarea: typeof import('@nutui/nutui-taro')['Textarea']
     Page: typeof import('./src/components/Page/index.vue')['default']
     Picker: typeof import('./src/components/ProFormField/Picker.vue')['default']
     ProForm: typeof import('./src/components/ProForm/index.vue')['default']

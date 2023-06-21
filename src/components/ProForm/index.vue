@@ -148,6 +148,20 @@
         >
         </short-password>
       </view>
+      <view v-if="item.component === 'textareaField'">
+        <nut-textarea
+          v-model="fields[item.name]"
+          :placeholder="item.placeholder"
+          :maxLength="item.maxLength"
+          :rows="item.rows"
+          :limitShow="item.limitShow"
+          :autosize="item.autosize"
+          :textAlign="item.textAlign"
+          :readonly="item.readonly"
+          :disabled ="item.disabled"
+          :autofocus ="item.autofocus"
+        />
+      </view>
       <view v-if="item.component === 'inputField'">
         <nut-input
           v-model="fields[item.name]"
