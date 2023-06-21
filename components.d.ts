@@ -45,6 +45,8 @@ declare module '@vue/runtime-core' {
     NutRange: typeof import('@nutui/nutui-taro')['Range']
     NutRate: typeof import('@nutui/nutui-taro')['Rate']
     NutRow: typeof import('@nutui/nutui-taro')['Row']
+    NutSearchbar: typeof import('@nutui/nutui-taro')['Searchbar']
+    NutShortPassword: typeof import('@nutui/nutui-taro')['ShortPassword']
     NutSticky: typeof import('@nutui/nutui-taro')['Sticky']
     NutSwiper: typeof import('@nutui/nutui-taro')['Swiper']
     NutSwiperItem: typeof import('@nutui/nutui-taro')['SwiperItem']
@@ -55,6 +57,8 @@ declare module '@vue/runtime-core' {
     ProForm: typeof import('./src/components/ProForm/index.vue')['default']
     Render: typeof import('./src/components/Render/index.vue')['default']
     Row: typeof import('./src/components/Row/index.vue')['default']
+    Searchbar: typeof import('./src/components/ProFormField/Searchbar.vue')['default']
+    ShortPassword: typeof import('./src/components/ProFormField/ShortPassword.vue')['default']
     Sticky: typeof import('./src/components/Sticky/index.vue')['default']
     Tabs: typeof import('./src/components/Tabs/index.vue')['default']
   }

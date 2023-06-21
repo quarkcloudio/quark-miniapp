@@ -127,6 +127,27 @@
         >
         </nut-searchbar>
       </view>
+      <view v-if="item.component === 'shortPasswordField'">
+        <short-password
+          v-model="fields[item.name]"
+          :label="item.label"
+          :shape="item.shape"
+          :maxLength="item.maxLength"
+          :inputType="item.inputType"
+          :placeholder="item.placeholder"
+          :clearable="item.clearable"
+          :clearIcon="item.clearIcon"
+          :background="item.background"
+          :inputBackground="item.inputBackground"
+          :confirmType="item.confirmType"
+          :autofocus="item.autofocus"
+          :focusStyle="item.focusStyle"
+          :disabled="item.disabled"
+          :readonly="item.readonly"
+          :inputAlign="item.inputAlign"
+        >
+        </short-password>
+      </view>
       <view v-if="item.component === 'inputField'">
         <nut-input
           v-model="fields[item.name]"

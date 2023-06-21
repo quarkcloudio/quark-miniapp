@@ -54,9 +54,9 @@ const openSwitch = () => {
 
 // 设置选定值
 const confirm = ( selectedValue, selectedOptions ) => {
+  console.log(selectedOptions)
   emit('update:modelValue',selectedValue)
   isVisible.value = false;
-  console.log(selectedOptions)
 };
 </script>
 
