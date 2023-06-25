@@ -62,5 +62,6 @@ declare module '@vue/runtime-core' {
     ShortPassword: typeof import('./src/components/ProFormField/ShortPassword.vue')['default']
     Sticky: typeof import('./src/components/Sticky/index.vue')['default']
     Tabs: typeof import('./src/components/Tabs/index.vue')['default']
+    Uploader: typeof import('./src/components/ProFormField/Uploader.vue')['default']
   }
 }
