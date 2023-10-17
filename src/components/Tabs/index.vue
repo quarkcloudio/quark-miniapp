@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, toRefs } from 'vue'
+import { toRefs } from 'vue'
 import * as CSS from 'csstype'
 
 // 组件属性

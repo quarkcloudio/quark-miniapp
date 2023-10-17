@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, toRefs, defineProps } from 'vue'
+import { ref, toRefs } from 'vue'
 import Taro, { useDidShow } from '@tarojs/taro'
 import { get } from "@/services/action"
 
@@ -15,7 +15,7 @@ const props = defineProps<{
 const { api }	= toRefs(props)
 
 // 组件数据
-let body = ref({})
+const body = ref({})
 
 // 获取数据
 const getComponents = async (api: string ) => {
@@ -40,14 +40,14 @@ const getComponents = async (api: string ) => {
   body.value = result;
 };
 
-useDidShow(() => {
+useDidShow(async () => {
   if (!api?.value) {
     Taro.showToast({
       title: "接口不能为空",
       icon: 'error',
     })
   } else {
-    getComponents(api?.value)
+    await getComponents(api?.value)
   }
 })
 </script>
