@@ -85,7 +85,7 @@
 </template>
 
 <script setup lang="ts">
-import { toRefs, watch } from 'vue'
+import { toRefs } from 'vue'
 
 defineOptions({
   name: 'render'
@@ -99,9 +99,4 @@ const props = defineProps<{
 }>()
 
 const { body, data, callback }	= toRefs(props)
-
-watch(body, (newValue, oldValue) => {
-  console.log(newValue.value)
-  console.log(oldValue.value)
-})
 </script>
